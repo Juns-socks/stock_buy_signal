@@ -1,1 +1,1 @@
-# stock_buy_signal
+# flask, 키움api, mysql과 의 연결을 통해 주식매수시세 포착하여 텔레그램으로 보내는 프로그램
