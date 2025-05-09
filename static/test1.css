@@ -1,0 +1,133 @@
+/* 기본 스타일 설정 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow: hidden; /* 스크롤을 제거합니다 */
+}
+
+/* 헤더 스타일 */
+h1 {
+    text-align: center;
+    color: #0044cc;
+    margin-top: 10px;
+    font-size: 2em;
+}
+
+/* 전체 컨테이너를 한 화면에 맞추기 */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 열을 만듭니다 */
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 60px); /* 화면 높이에 맞게 조정 */
+    box-sizing: border-box;
+}
+
+/* 링크 스타일 */
+a {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    font-size: 1em;
+    color: #0044cc;
+    text-decoration: none;
+    border: 2px solid #0044cc;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #0044cc;
+    color: #fff;
+}
+
+/* 버튼 스타일 */
+button {
+    background-color: #0044cc;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #002a8f;
+}
+
+/* 출력 스타일 */
+#output {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* 폼 컨테이너 스타일 */
+.form-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%; /* 컨테이너 내부 높이를 맞춤 */
+    overflow: auto; /* 내부 요소가 많을 경우 스크롤 허용 */
+}
+
+/* 폼 내부 스타일 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 0.9em;
+    color: #333;
+}
+
+input, select {
+    padding: 8px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #0044cc;
+}
+
+/* 폼 제목 스타일 */
+h2 {
+    color: #0044cc;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+/* 폼 버튼 스타일 */
+form button {
+    margin-top: 10px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* 화면이 작아지면 한 열로 배치 */
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .form-container {
+        width: 90%;
+    }
+}

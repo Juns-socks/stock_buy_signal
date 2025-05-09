@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiwoom Flask Integration</title>
+    <script>
+        function login() {
+            fetch('/login', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.status); // 로그인 결과 표시
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Kiwoom Flask Integration</h1>
+    <button onclick="login()">Login</button>
+</body>
+</html>

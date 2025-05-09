@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매수신호 수신프로그램</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function fetchChatID() {
+            fetch("/get_chat_id")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.chat_id) {
+                        document.getElementById("output").innerText = "Chat ID: " + data.chat_id;
+                    } else {
+                        document.getElementById("output").innerText = "오류: " + data.error;
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Finance Project</h1>
+
+    <!-- Chat ID 가져오는 부분 -->
+    <div class="link-container">
+        <a href="http://t.me/stock_junseok_bot">chat_id를 가져오기 위해 클릭 후 봇에게 아무 문자나 보내세요</a>
+        <button onclick="fetchChatID()">Chat ID 가져오기</button>
+        <p id="output"></p>
+    </div>
+
+    <!-- 나머지 폼들을 세로로 정렬 -->
+    <div class="container">
+        <!-- 이름 입력 폼 -->
+        <div class="form-container">
+            <h2>이름 입력</h2>
+            <form method="POST">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="name">chat_id(텔레그램):</label>
+                <input type="text" id="CHAT_ID" name="CHAT_ID" required><br>
+                <button type="submit" name="name_submit">확인</button>
+                <button type="submit" name="reset_submit">초기화</button>
+            </form>
+        </div>
+
+        <!-- 종목 제한 폼 -->
+        <div class="form-container">
+            <h2>종목 제한</h2>
+            <form method="POST">
+                <label for="filter_type">종목 제한 선택:</label>
+                <select id="filter_type" name="filter_type">
+                    <option value="시가총액">시가총액</option>
+                    <option value="상장 일수">상장 일수</option>
+                </select><br>
+                <label for="filter_value">값:</label>
+                <input type="number" id="filter_value" name="filter_value" required><br>
+                <button type="submit" name="add_filter2">추가</button>
+                <button type="submit" name="filter_submit">확인</button>
+            </form>
+        </div>
+
+        <!-- 기술적 지표 선택 폼 -->
+        <div class="form-container">
+            <h2>기술적 지표 선택</h2>
+            <form method="POST">
+                <label for="indicator">지표 선택:</label>
+                <select id="indicator" name="indicator">
+                    <option value="RSI">RSI</option>
+                    <option value="볼린저밴드">볼린저밴드</option>
+                    <option value="이동평균선">이동평균선</option>
+                </select><br>
+                <label for="day_week">일봉주봉선택:</label>
+                <select id="day_week" name="day_week">
+                    <option value="일봉">일봉</option>
+                    <option value="주봉">주봉</option>
+                </select><br>
+                <label for="lower_value">하단 수치:</label>
+                <input type="number" id="lower_value" name="lower_value" required><br>
+                <button type="submit" name="add_filter1">추가</button>
+                <button type="submit" name="technical_submit">확인</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
