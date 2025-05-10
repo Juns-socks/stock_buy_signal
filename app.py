@@ -118,7 +118,7 @@ def get_chat_id():
         return jsonify({"error" : "먼저 봇에게 채팅을 보내세요"})
 
 def run_flask_app():
-    app.run(host="0.0.0.0", port=5000,debug=True, use_reloader=False)  # `use_reloader=False`로 재시작 방지
+    app.run(host="0.0.0.0", port=5001,debug=True, use_reloader=False)  # `use_reloader=False`로 재시작 방지
 def run_kiwoom_app():
     global kiwoom
     app = QApplication(sys.argv)  # PyQt5 앱 생성
