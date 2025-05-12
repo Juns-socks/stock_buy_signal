@@ -110,7 +110,7 @@ def get_chat_id():
     data = response.json()
 
     if "result" in data and len(data["result"]) > 0:
-        chat_id = data["result"][0]["message"]["chat"]["id"]
+        chat_id = data["result"][-1]["message"]["chat"]["id"]
         print(chat_id)
         return jsonify({"chat_id": chat_id})
     else:
