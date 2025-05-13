@@ -272,14 +272,14 @@ def calculate(person_name,chat_id,RSI_value,BOL_value,SMA_value,RSI_1,BOL_1,SMA_
                     df['BB_Lower'] = bbands['BBL_40_2.0']  # 하단 밴드
                     bol = df['BB_Lower'].iloc[-1]
                 else:
-                    price = df2['Close'].iloc[-1]
+                    price = df2['Low'].iloc[-1]
                     bbands = ta.bbands(df2['Close'], length=40, stddev=2)
                     df2['BB_Lower'] = bbands['BBL_40_2.0']  # 하단 밴드
                     bol = df2['BB_Lower'].iloc[-1]
             except Exception:
                 continue
 
-            if bol == None or price > bol:
+            if bol == None or price < bol:
                 continue
 
             message = f"{name}의 볼린저밴드 {BOL_1} 매수 기회일 수 있습니다!"
