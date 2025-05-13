@@ -279,7 +279,7 @@ def calculate(person_name,chat_id,RSI_value,BOL_value,SMA_value,RSI_1,BOL_1,SMA_
             except Exception:
                 continue
 
-            if bol == None or price < bol:
+            if bol == None or price > bol:
                 continue
 
             message = f"{name}의 볼린저밴드 {BOL_1} 매수 기회일 수 있습니다!"
